@@ -43,6 +43,7 @@ const defaultProps = {
   regular: false,
   verticalSpacing: undefined,
   keepFocusOnInput: false,
+  readOnly: true,
 
   // calendar presentation and interaction related props
   renderMonth: null,
@@ -116,10 +117,25 @@ class SingleDatePickerWrapper extends React.Component {
         focused={focused}
         onDateChange={this.onDateChange}
         onFocusChange={this.onFocusChange}
+        calendarInfoPosition="top"
+        renderCalendarInfo={() => (
+          <WomfCalendarHeader />
+        )}
       />
     );
   }
 }
+const WomfCalendarHeader = () => (
+  <div
+    style={{
+      padding: '10px 21px',
+      borderTop: '1px solid #dce0e0',
+      color: '#484848',
+    }}
+  >
+    (Jet pic) Display Your flight 
+  </div>
+)
 
 SingleDatePickerWrapper.propTypes = propTypes;
 SingleDatePickerWrapper.defaultProps = defaultProps;
